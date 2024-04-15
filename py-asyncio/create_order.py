@@ -2,7 +2,7 @@ import requests
 from urllib.parse import urlparse, urlsplit
 
 
-def create_order():
+def create_order(email, qq_account):
     url = "https://maifanx.shop/create-order"
 
     headers = {
@@ -10,7 +10,7 @@ def create_order():
         "accept-language": "zh-CN,zh;q=0.9",
         "cache-control": "max-age=0",
         "content-type": "application/x-www-form-urlencoded",
-        "cookie": "_ga=GA1.1.1103622423.1713063943; crisp-client%2Fsession%2F0f6d053e-1466-4feb-9651-0597138077fe=session_35dfd0b0-edba-4acd-9cc9-0da5b3b0cc0f; crisp-client%2Fsocket%2F0f6d053e-1466-4feb-9651-0597138077fe=1; dujiaoka_orders=eyJpdiI6IlpKWnlpOUc3NVpRZ0owRGJHSEpsc1E9PSIsInZhbHVlIjoidHJJbm9MTit1T0dvOEhDb2oyaUpGT25Lb2ZJa3NVR2VGRUk4aXpNTDJwb0ljT1QzTVJ6T0dKNUgwTGFqUEY5Zm1RTVJ1b2tzOUhiSHlJVEZ6TUJRaXZ6bjlrY3dHeEZTaEkyU2tKdElkcFl5YTFZVFJyM3lmRjBpOUlYeitmQmhTY0ZyZFhwSkpaOWYrRjdCWDRCMk1OazZkU0VtMlZCVzZYVUZiZW1NazdRPSIsIm1hYyI6IjU3OWQyNTc2NjQyOTliMTA0MDQ5MDM5MmMyZDdjMWRjYWFmNjQ5YzdmYmZhYzUwNDhiODdmOTEzODNlZDcyMDQifQ%3D%3D; XSRF-TOKEN=eyJpdiI6IkZMVGhSeXRDdVJSb0F4bGN2Uk0xRmc9PSIsInZhbHVlIjoiTVlsYTUrNDZyS3cxR1lzNGFcL2M3bUVUVDc1WmwxdkJWZ0FJaDlUUHBVWFRJS0oweld1T0dlc1ZKeWV1VnZqZWx3d2VmMm1MWmY0TjVRTTFMVStQU29UVVdNZkt4RkhxcU1rOGhoZjFudlJjZ0xqTjBiRlwveUVLd2xuQnBpdXY0cyIsIm1hYyI6ImI5MmMxODAyNWE3NDg1ZmRiMDdmMTE1NmE2NjUzMTE5NGJlMzFmZTNiMzg4Mzk1OTc3OWFlYTE4ZmNiOTU2NWQifQ%3D%3D; _session=eyJpdiI6IndwRWRWeWZIZVBpSHRJdEx5NitmMmc9PSIsInZhbHVlIjoiYm1UMmJyMHoxSGFQOUJ3ZUNrcjFVOWowZTQ5M0FuQ1wvckx5SG4yaVpjYU1yQ0NYbVhjNTVQXC96T1VlbmdBUmx0bVBXK2VkTGNJZlZEZTh3VEd5b2dDdkVzdDhOaUZuNGU4ZlV0bldPbU8xWHVVTEhQQnJlZnJSb1pGMlR6M3NlUiIsIm1hYyI6IjMwZWNkYWRkYjgwMDVhMWNlYjc2NjhiYmNmZDdhNGY0OTNhNmU4ZWVhY2JkMjZlMDdmNmZiOThlZjk3MTk3NTEifQ%3D%3D; _ga_4PLV1058L3=GS1.1.1713102629.2.1.1713103289.32.0.0",
+        "cookie": "_ga=GA1.1.435105058.1713146903; XSRF-TOKEN=eyJpdiI6IjRab1B1QU1kcENTQmlyb09hTUJpQ2c9PSIsInZhbHVlIjoiSXVGZG9RMGJUMVYwV0Z1SkVib0F3ZXFaaHBuY0FTTkZFZ1pZbERtR3V5T1wvXC9jSUx1ZWxHY3I5MnM0QlhCN3VYV3NpTWVPNXQwRFVscUpNeTZPc2oyVFl4THdLZzBMNUpwTkZKWXFDOEFEVVVLODNqc2xhcmpJdUw5cWNVV0ZhbCIsIm1hYyI6ImM5YThjNDc4NmVjZGRkOTVjYzVlMjIyNjM3MmNmYzFkYzFmYzFjYTUzNTZhNDI1NjA2NTA2MmYyYWNmMDg2NGMifQ%3D%3D; _session=eyJpdiI6ImdDWWNBVmMxck00NHlJOWMzZnlLb2c9PSIsInZhbHVlIjoiME5IVEVzeTNKb3NXSm1RcVJ4blZmMENUREM4RlVpZkZxUERxeUQzTVJOWk1PQmFlcU1DNjNWcDgxTmNuSUJ6cnVEbGVmZ1JPcEwxTUVPa3VSdU8zSEd1akZ2MTVJTGRObG5aUU1iK3p6WlwvZ0dIZG1UOVZDOHdKSHY2VXdpVXdSIiwibWFjIjoiYmUxMDNkYmY2MWEwOTFkMTA5NmI5ODQ2OWY5MTdhMDRkNTRhNzI0ODY2OTU5OWNjZTFmNjExNDY0OTI0YmE3YSJ9; _ga_4PLV1058L3=GS1.1.1713146903.1.1.1713146917.46.0.0; crisp-client%2Fsession%2F0f6d053e-1466-4feb-9651-0597138077fe=session_69eb4608-2e36-4cb3-9039-c04378c1f1a7",
         "origin": "https://maifanx.shop",
         "referer": "https://maifanx.shop/buy/9",
         "sec-ch-ua": '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
@@ -25,16 +25,17 @@ def create_order():
     }
 
     data = {
-        "_token": "GMETAi3HsRNyp0N8WvD759OuDHYwDMxneWSh8Ubf",
+        "_token": "hcXG95CgJ9ootECIayB4gbQ0njRjWM2TO4y4EG4p",
         "gid": "9",
         "by_amount": "1",
-        "email": "912386561@qq.com",
-        "qq_account": "749172973",
+        "email": email,
+        "qq_account": qq_account,
         "payway": "1",
     }
 
     # Make the POST request with redirection allowed (default behavior)
     response = requests.post(url, headers=headers, data=data, allow_redirects=True)
+    print(response)
 
     # Access the final URL after redirection
     final_url = response.url
@@ -65,4 +66,4 @@ def get_order_id(url):
 
 
 if __name__ == "__main__":
-    create_order()
+    create_order("10293i10l@qq.com", "123123141")
