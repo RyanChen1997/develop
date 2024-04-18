@@ -28,20 +28,6 @@ else
 	sudo apt install git
 fi
 
-if [ "$(git config --get credential.helper)" = "manager-core" ]; then
-	echo "Git Credential Manager is configured"
-else
-	sudo apt install libsecret-1-0 libsecret-1-dev
-	wget https://github.com/microsoft/Git-Credential-Manager-Core/releases/download/v2.0.498/gcmcore-linux_amd64.2.0.498.54650.tar.gz
-	mkdir ~/git-credential-manager
-	tar -xzf gcmcore-linux_amd64.2.0.498.54650.tar.gz -C ~/git-credential-manager
-	echo '\n' >> ~/.bashrc
-	echo '# git' >> ~/.bashrc
-	echo 'export PATH="$PATH:$HOME/git-credential-manager"' >> ~/.bashrc
-	source ~/.bashrc
-	rm gcmcore-linux_amd64.2.0.498.54650.tar.gz
-	git config --global credential.helper manager-core
-	git config --global credential.credentialStore plaintext
+# git push需要申请git token
+git config --global credential.helper store
 
-	bash <(wget -qO- https://aka.ms/gcm/linux-install-source.sh)
-fi
