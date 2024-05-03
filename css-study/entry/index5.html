@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            border: solid 1px black;
+            background-color: orange;
+            display: block;
+        }
+        div p {
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            animation-name: shift-left;
+            animation-duration: 1s;
+        }
+        
+        @keyframes shift-left {
+            from {
+                transform: translateX(100px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>I am a box</p>
+    </div>
+</body>
+</html>
