@@ -1,3 +1,6 @@
+:root {
+    --global-border: 10px;
+}
 body {
     background-color: rgb(20, 20, 20);
 }
@@ -5,30 +8,150 @@ body {
 main {
     display: flex;
     justify-content: flex-end;
-    width: calc(100% - 200px);
-    margin: 50px 0;
     padding: 0 100px;
 }
 
 .column {
     min-height: 600px;
     background-color: rgb(35, 27, 21);
-    border-radius: 20px;
+    border-radius: var(--global-border);
     padding: 20px;
     margin: 50px 20px;
     border: solid 1px rgb(160, 160, 160);
 }
 
 aside {
-    width: 20%;
+    position: sticky;
+    top: 50px;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
+
 
 .content {
-    width: 80%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
 }
 
-p {
+.profile-img {
+    border: 2px solid gray;
+    border-radius: var(--global-border);
+    padding: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+.profile-name {
+    font-size: 30px;
+    color: #cac9c9;
+    font-weight: bold;
+}
+
+.profile-tag {
+    color: #cac9c9;
+    background-color: gray;
+    padding: 3px 7px;
+    border-radius: var(--global-border);
+}
+
+.sperator {
+    height: 1px;
+    width: 70%;
+    background-color: rgb(109, 109, 109);
+    margin: 10px 0;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-item {
+    background-color: rgb(113, 113, 113);
+    display: grid;
     width: 100%;
-    height: 100px;
-    background-color: orange;
+    align-items: center;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 6px;
+    padding: 2px 6px;
+    border-radius: var(--global-border);
+    margin-bottom: 8px;
+}
+
+.info-item img {
+    height: 80%;
+    width: 80%;
+    object-fit: cover;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.content nav {
+    display: flex;
+    background-color: #cac9c9;
+    border-radius: 0 var(--global-border) 0 var(--global-border);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+}
+
+.content nav button {
+    font-size: large;
+    background-color: transparent;
+    padding: 0 10px;
+    border: none;
+}
+
+.content-title {
+    color: aliceblue;
+}
+
+.content-instruction {
+    padding: 10px;
+    color: tan;
+    font-size: medium;
+}
+
+.content-skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.content-skill-item {
+    flex: 0 0 40%;
+    background-color: rgb(113, 113, 113);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    column-gap: 5px;
+    border-radius: var(--global-border);
+    padding: 2px;
+    margin-bottom: 7px;
+}
+
+.content-skill-item img {
+    height: 100%;
+    width: 100%;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    object-fit: cover;
+}
+
+.content-testimonials {
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+    overflow-y: auto;
 }

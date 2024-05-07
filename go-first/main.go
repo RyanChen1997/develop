@@ -10,5 +10,7 @@ func main() {
 
 	// chanTest()
 
-	commandFFmpeg()
+	// commandFFmpeg()
+
+	lastIndex()
 }
