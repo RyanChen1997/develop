@@ -12,5 +12,8 @@ func main() {
 
 	// commandFFmpeg()
 
-	lastIndex()
+	// lastIndex()
+
+	// extract("https://v8.dious.cc/20230504/5lKH0ozs/index.m3u8")
+	extractM3u8()
 }
