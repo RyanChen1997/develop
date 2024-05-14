@@ -60,7 +60,7 @@ func extract(url string) ([]string, error) {
 
 	// 创建一个定时器，当超过30秒时执行函数来杀死命令
 	timeout := time.AfterFunc(10*time.Second, func() {
-		err := cmd.Process.Kill()
+		err := cmd.Process.Signal(os.Interrupt)
 		if err != nil {
 			fmt.Printf("Error killing process: %s\n", err)
 			return
