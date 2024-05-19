@@ -34,30 +34,37 @@
     <!-- services -->
     <div class="services">
         <div class="theater">
-            <div class="video-url">
-                <i class="fa-solid fa-paperclip"></i>
-                <input type="text" placeholder="输入视频网址" class="video-url-input" id="video-url">
-            </div>
-            <button>立即解析</button>
-            <p>使用视频解析器，解析网站视频，享受纯净的视听体验~</p>
+            <div class="theater-search">
+                <div class="video-url">
+                    <i class="fa-solid fa-paperclip"></i>
+                    <input type="text" placeholder="输入视频网址" class="video-url-input" id="video-url">
+                </div>
+                <button>立即解析</button>
+                <p>使用视频解析器，解析网站视频，享受纯净的视听体验~</p>
 
-            <div class="loading"></div>
+                <div class="loading"></div>
 
-            <div class="result">
-                <p>解析结果：</p>
-                <ul class="url-list">
-                    <li><i class="fa-solid fa-hand-point-right"></i> http://example.com</li>
-                    <li><i class="fa-solid fa-hand-point-right"></i> http://example.com</li>
-                    <li><i class="fa-solid fa-hand-point-right"></i> http://example.com</li>
-                </ul>
+                <div class="result">
+                    <p>解析结果：</p>
+                    <ul class="url-list">
+                        <li><i class="fa-solid fa-hand-point-right"></i> http://example.com</li>
+                        <li><i class="fa-solid fa-hand-point-right"></i> http://example.com</li>
+                        <li><i class="fa-solid fa-hand-point-right"></i> http://example.com</li>
+                    </ul>
+                </div>
+
+                <div class="warn">
+                    <p></p>
+                </div>
             </div>
 
-            <div class="warn">
-                <p></p>
+            <div class="theater-play">
+                <video controls width="60%" id="video">
+                </video>
             </div>
+
         </div>
-        <!-- <video controls width="60%" id="video">
-        </video> -->
+
     </div>
 
     <script src="script.js"></script>

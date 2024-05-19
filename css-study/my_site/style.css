@@ -30,6 +30,7 @@
     line-height: 40px;
     align-items: center;
     justify-content: center;
+    list-style: none;
 }
 
 .header nav ul li {
@@ -39,6 +40,7 @@
 
 .header nav ul li a {
     color: white;
+    text-decoration: none;
 }
 
 
@@ -160,6 +162,9 @@
     border-radius: 20px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
     padding: 20px;
+}
+
+.services .theater .theater-search {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -266,4 +271,9 @@ p {
     color: red;
     font-size: 25px;
     margin-top: 60px;
+}
+
+.theater .theater-play {
+    display: flex;
+    justify-content: center;
 }
