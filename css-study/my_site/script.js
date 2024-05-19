@@ -5,17 +5,16 @@ const theater = document.querySelector(".theater");
 const loading = document.querySelector(".theater .loading");
 const result = document.querySelector(".theater .result");
 const warnElement = document.querySelector(".theater .warn");
+const video = document.getElementById('video');
 
 inputUrl.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
         getAndClearInput(inputUrl, extractM3U8FromUrl)
-        userCanInput(false)
     }
 })
 
 button.addEventListener("click", function (e) {
     getAndClearInput(inputUrl, extractM3U8FromUrl)
-    userCanInput(false)
 })
 
 function getAndClearInput(input, callback) {
@@ -66,9 +65,6 @@ function extractM3U8FromUrl(url) {
             console.log(error);
             warn(error);
             theaterMainContentShow("warn");
-        }).
-        finally(() => {
-            userCanInput(true);
         });
 }
 
@@ -77,21 +73,25 @@ function theaterMainContentShow(elem) {
         loading.style.display = "none";
         result.style.display = "none";
         warnElement.style.display = "none";
+        userCanInput(true);
     }
     if (elem === "loading") {
         loading.style.display = "block";
         result.style.display = "none";
         warnElement.style.display = "none";
+        userCanInput(false);
     }
     if (elem === "result") {
         result.style.display = "block";
         warnElement.style.display = "none";
         loading.style.display = "none";
+        userCanInput(true);
     }
     if (elem === "warn") {
         warnElement.style.display = "block";
         loading.style.display = "none";
         result.style.display = "none";
+        userCanInput(true);
     }
 }
 
@@ -107,18 +107,24 @@ function setUrls(theater, urls) {
     var ul = result.querySelector("ul");
     ul.innerHTML = '';
 
-    //
     urls.forEach(url => {
         const li = document.createElement("li");
-        li.innerHTML = '<li><i class="fa-solid fa-hand-point-right"></i> {url}</li>'.replace("{url}", url);
+        li.innerHTML = '<i class="fa-solid fa-hand-point-right"></i> {url}'.replace("{url}", url);
         ul.appendChild(li);
     });
+
+    ul.querySelectorAll("li").forEach(li => {
+        li.addEventListener("click", function (e) {
+            const url = li.innerText.trim()
+            playWithHls(url);
+            video.style.display = "block";
+        })
+    })
 }
 
 
-function playWithHls() {
-    var video = document.getElementById('video');
-    var videoSrc = 'https://v8.dious.cc/20230504/5lKH0ozs/index.m3u8';
+function playWithHls(url) {
+    var videoSrc = url;
     if (Hls.isSupported()) {
         console.log('HLS is supported');
         var hls = new Hls();

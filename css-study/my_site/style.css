@@ -267,3 +267,8 @@ p {
     font-size: 25px;
     margin-top: 60px;
 }
+
+.theater video {
+    display: none;
+    margin-top: 60px;
+}
