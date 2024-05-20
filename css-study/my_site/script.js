@@ -5,7 +5,8 @@ const theater = document.querySelector(".theater");
 const loading = document.querySelector(".theater .loading");
 const result = document.querySelector(".theater .result");
 const warnElement = document.querySelector(".theater .warn");
-const video = document.getElementById('video');
+const theaterSearchElement = theater.querySelector(".theater-search");
+const theaterPlayElement = theater.querySelector(".theater-play");
 
 inputUrl.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
@@ -25,11 +26,11 @@ function getAndClearInput(input, callback) {
 
 function userCanInput(enable) {
     if (enable) {
-        button.disabled = true;
-        inputUrl.disabled = true;
-    } else {
         button.disabled = false;
         inputUrl.disabled = false;
+    } else {
+        button.disabled = true;
+        inputUrl.disabled = true;
     }
 }
 
@@ -58,7 +59,7 @@ function extractM3U8FromUrl(url) {
                 theaterMainContentShow("warn");
                 return;
             };
-            setUrls(theater, data.urls);
+            setUrls(theaterPlayElement, data.urls);
             theaterMainContentShow("result")
         }).
         catch(error => {
@@ -69,6 +70,8 @@ function extractM3U8FromUrl(url) {
 }
 
 function theaterMainContentShow(elem) {
+    theaterPlayElement.innerHTML = '';
+
     if (elem === "none") {
         loading.style.display = "none";
         result.style.display = "none";
@@ -99,6 +102,18 @@ function warn(text) {
     warnElement.querySelector("p").innerText = text;
 }
 
+function clickUrlPlayVideo(li) {
+    li.addEventListener("click", function (e) {
+        theaterPlayElement.innerHTML = '';
+
+        const url = li.innerText.trim();
+        const video = document.createElement("video");
+        video.setAttribute("controls", "controls");
+        theaterPlayElement.appendChild(video);
+        playWithHls(video, url);
+    })
+}
+
 function setUrls(theater, urls) {
     if (urls.length === 0) {
         return;
@@ -113,17 +128,11 @@ function setUrls(theater, urls) {
         ul.appendChild(li);
     });
 
-    ul.querySelectorAll("li").forEach(li => {
-        li.addEventListener("click", function (e) {
-            const url = li.innerText.trim()
-            playWithHls(url);
-            video.style.display = "block";
-        })
-    })
+    ul.querySelectorAll("li").forEach(li => clickUrlPlayVideo(li))
 }
 
 
-function playWithHls(url) {
+function playWithHls(video, url) {
     var videoSrc = url;
     if (Hls.isSupported()) {
         console.log('HLS is supported');

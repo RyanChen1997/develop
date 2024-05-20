@@ -33,6 +33,12 @@ func extractM3u8() {
 			return
 		}
 
+		// headers
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Credentials", "true")
+		c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Header("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
+
 		fmt.Println("url:", url)
 
 		urls, err := extract(url)
@@ -45,6 +51,7 @@ func extractM3u8() {
 		}
 
 		fmt.Printf("request url: %s || response urls: %v\n", url, urls)
+
 		c.JSON(http.StatusOK, gin.H{
 			"urls": urls,
 		})
@@ -87,7 +94,7 @@ func extract(url string) ([]string, error) {
 			if find {
 				urls = append(urls, url)
 			}
-			timeout.Reset(10 * time.Second)
+			timeout.Reset(20 * time.Second)
 		}
 	}()
 
