@@ -8,6 +8,8 @@ const warnElement = document.querySelector(".theater .warn");
 const theaterSearchElement = theater.querySelector(".theater-search");
 const theaterPlayElement = theater.querySelector(".theater-play");
 
+const remoteHost = 'http://101.126.9.35'
+
 inputUrl.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
         getAndClearInput(inputUrl, extractM3U8FromUrl)
@@ -41,7 +43,7 @@ function extractM3U8FromUrl(url) {
 
     theaterMainContentShow("loading");
 
-    const requestURL = "http://localhost:8080/extract?url=" + url;
+    const requestURL = remoteHost + "/extract?url=" + url;
     fetch(requestURL).
         then(response => {
             if (response.status !== 200) {

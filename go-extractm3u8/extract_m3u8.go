@@ -13,6 +13,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+const timeOut = 20 * time.Second
+
 // extractM3u8 启动一个Gin服务器，包含一个GET接口，用于提取m3u8文件
 func extractM3u8() {
 	os.Setenv("RUST_BACKTRACE", "1")
@@ -61,7 +63,7 @@ func extractM3u8() {
 		})
 	})
 
-	r.Run(":80")
+	r.Run(":8080")
 }
 
 func extract(url string) ([]string, error) {
@@ -70,7 +72,7 @@ func extract(url string) ([]string, error) {
 	cmd := exec.Command("vsd", "capture", url)
 
 	// 创建一个定时器，当超过30秒时执行函数来杀死命令
-	timeout := time.AfterFunc(10*time.Second, func() {
+	timeout := time.AfterFunc(timeOut, func() {
 		err := cmd.Process.Signal(os.Interrupt)
 		if err != nil {
 			fmt.Printf("Error killing process: %s\n", err)
@@ -98,7 +100,7 @@ func extract(url string) ([]string, error) {
 			if find {
 				urls = append(urls, url)
 			}
-			timeout.Reset(20 * time.Second)
+			timeout.Reset(timeOut)
 		}
 	}()
 
