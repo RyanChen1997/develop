@@ -69,7 +69,7 @@ func extractM3u8() {
 func extract(url string) ([]string, error) {
 	var urls []string
 	// 创建一个exec.Cmd对象来执行命令
-	cmd := exec.Command("vsd", "capture", url)
+	cmd := exec.Command("vsd", "capture", "--headless", url)
 
 	// 创建一个定时器，当超过30秒时执行函数来杀死命令
 	timeout := time.AfterFunc(timeOut, func() {
