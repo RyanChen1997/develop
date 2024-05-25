@@ -57,7 +57,7 @@ function extractM3U8FromUrl(url) {
         then(data => {
             if (!data?.urls) {
                 console.log(data);
-                warn("数据格式错误!")
+                warn("解析失败了，要不换个网址试试看")
                 theaterMainContentShow("warn");
                 return;
             };
