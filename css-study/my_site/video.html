@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Tangerine|Noto+Serif+SC:wght@200..900&family=ZCOOL+KuaiLe&display=swap">
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
 </head>
@@ -27,7 +29,12 @@
             <i class="fa-regular fa-user"></i>
         </div>
         <div class="buy-me-coffee">
-            <a href="#"><i class="fa-solid fa-mug-saucer"></i></a>
+            <i class="fa-solid fa-mug-saucer"></i>
+            <p>请我喝杯咖啡</p>
+        </div>
+        <div class="pay" id="pay">
+            <img src="./image/alypay.jpg" alt="">
+            <img src="./image/wechatpay.jpg" alt="">
         </div>
     </section>
 
@@ -43,7 +50,8 @@
                 <p>使用视频解析器，解析网站视频，享受纯净的视听体验~</p>
 
                 <div class="loading">
-                    <p></p>
+                    <div class="circle"></div>
+                    <p>这个过程可能需要几十秒，请耐心等待~</p>
                 </div>
 
                 <div class="result">
@@ -64,7 +72,8 @@
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="base.js"></script>
+    <script src="video.js"></script>
 </body>
 
 </html>

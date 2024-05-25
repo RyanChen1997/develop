@@ -81,7 +81,7 @@ function theaterMainContentShow(elem) {
         userCanInput(true);
     }
     if (elem === "loading") {
-        loading.style.display = "block";
+        loading.style.display = "flex";
         result.style.display = "none";
         warnElement.style.display = "none";
         userCanInput(false);
@@ -111,6 +111,7 @@ function clickUrlPlayVideo(li) {
         const url = li.innerText.trim();
         const video = document.createElement("video");
         video.setAttribute("controls", "controls");
+        video.innerText = 'Your browser does not support video element.';
         theaterPlayElement.appendChild(video);
         playWithHls(video, url);
     })

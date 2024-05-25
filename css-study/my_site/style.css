@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Noto Serif SC", serif, "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+}
+
+body {
+    background-color: #2c2c2c;
 }
 
 /* header */
@@ -19,10 +24,14 @@
     background: linear-gradient(to right, #c40aa8, #3f3bc0);
     background-clip: text;
     color: transparent;
+    font-family: 'Tangerine', serif;
+    font-size: 40px;
 }
 
 .header h1 span {
+    font-family: 'Tangerine', serif;
     margin-left: 10px;
+    font-size: 40px;
 }
 
 .header nav ul {
@@ -70,16 +79,54 @@
     height: 50px;
     width: 50px;
     z-index: 2;
-    border-radius: 50%;
+    border-radius: 30px;
+    transition: width 0.3s;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
+    overflow: hidden;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .header .buy-me-coffee i {
     font-size: 25px;
-    text-align: center;
+    margin-right: 8px;
+}
+
+.header .buy-me-coffee p {
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.header .buy-me-coffee:hover {
+    width: 200px;
+}
+
+.header .buy-me-coffee:hover p {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+.header .pay {
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px #4e5f4d;
+    display: none;
+    width: auto;
+    height: auto;
+    background-color: #20583a;
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header .pay img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    vertical-align: middle;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 
@@ -90,10 +137,12 @@
     width: 100%;
     min-height: 100vh;
     height: 100%;
-    background-color: burlywood;
+    /* background-color: burlywood; */
     background-image: url("image/background.jpg");
     background-size: cover;
     z-index: 1;
+
+    transition: height 0.8s ease-in-out;
 }
 
 .services::before {
@@ -157,11 +206,12 @@
 .services .theater {
     background-color: #2c2c2c;
     width: 1000px;
-    min-height: 600px;
+    min-height: 380px;
     height: 100%;
     border-radius: 20px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    padding: 20px 20px 50px 20px;
+    transition: height 0.8s ease-in-out;
 }
 
 .services .theater .theater-search {
@@ -217,7 +267,11 @@ p {
 
 .theater .loading {
     display: none;
+    flex-direction: column;
+    align-items: center;
+}
 
+.theater .loading .circle {
     margin-top: 60px;
     width: 50px;
     height: 50px;
@@ -238,6 +292,11 @@ p {
     }
 }
 
+.theater .loading p {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
 .theater .result {
     display: none;
 
@@ -256,6 +315,7 @@ p {
 .theater .result ul li {
     font-size: 22px;
     margin: 5px;
+    word-wrap: break-word;
     cursor: pointer;
 }
 
