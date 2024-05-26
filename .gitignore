@@ -4,3 +4,5 @@
 py-autogen/ag
 css-study/*.zip
 *.mp4
+cache.db
+ui
