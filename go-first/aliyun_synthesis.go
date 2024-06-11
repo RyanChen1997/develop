@@ -13,8 +13,8 @@ import (
 
 const (
 	//online key
-	APPKEY = "" //获取Appkey请前往控制台：https://nls-portal.console.aliyun.com/applist
-	TOKEN  = "" //获取Token具体操作，请参见：https://help.aliyun.com/document_detail/450514.html
+	APPKEY = "ryan_test" //获取Appkey请前往控制台：https://nls-portal.console.aliyun.com/applist
+	TOKEN  = "ryan_test" //获取Token具体操作，请参见：https://help.aliyun.com/document_detail/450514.html
 )
 
 type TtsUserParam struct {
@@ -91,9 +91,9 @@ const (
 
 func testMultiInstance() {
 	param := nls.DefaultSpeechSynthesisParam()
-	config := nls.NewConnectionConfigWithToken(nls.DEFAULT_URL, APPKEY, TOKEN)
+	config := nls.NewConnectionConfigWithToken("ws://ios-tts-svc-stg.myhll.cn/ws/v1", APPKEY, TOKEN)
 	strId := "ID0"
-	fname := "ttsdump.wav"
+	fname := "ttsdump.pcm"
 	ttsUserParam := new(TtsUserParam)
 	fout, err := os.OpenFile(fname, os.O_RDWR|os.O_TRUNC|os.O_CREATE, 0666)
 	logger := nls.NewNlsLogger(os.Stderr, strId, log.LstdFlags|log.Lmicroseconds)
