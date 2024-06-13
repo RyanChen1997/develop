@@ -14,6 +14,8 @@ require (
 require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1376 // indirect
 	github.com/aliyun/alibabacloud-nls-go-sdk v1.1.1 // indirect
+	github.com/antchfx/xmlquery v1.4.0 // indirect
+	github.com/antchfx/xpath v1.3.0 // indirect
 	github.com/bytedance/sonic v1.9.1 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
@@ -25,6 +27,7 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.14.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
+	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
