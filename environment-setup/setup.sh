@@ -46,11 +46,12 @@ if [[ $install_singbox == "yes" ]]; then
       sudo tee /etc/apt/sources.list.d/sagernet.list > /dev/null
     sudo apt update
     sudo apt install sing-box # or sing-box-beta
+    echo 'sing-box 安装成功!'
+    echo '1. 访问 部署订阅转换工具，根据官方文档操作，得到config.json'
+    echo '2. 保持config.json到/etc/sing-box/config.json'
+    echo '3. 启动 sudo sing-box run -c /etc/sing-box/config.json'
+    echo '4. http/https代理设置：export https_proxy=http://127.0.0.1:2080 & export http_proxy=http://127.0.0.1:2080'
+    echo '5. 访问测试 curl www.google.com'
 fi
-echo 'sing-box 安装成功!'
-echo '1. 访问 部署订阅转换工具，根据官方文档操作，得到config.json'
-echo '2. 保持config.json到/etc/sing-box/config.json'
-echo '3. 启动 sudo sing-box run -c /etc/sing-box/config.json'
-echo '4. http/https代理设置：export https_proxy=http://127.0.0.1:2080 & export http_proxy=http://127.0.0.1:2080'
-echo '5. 访问测试 curl www.google.com'
+
 
