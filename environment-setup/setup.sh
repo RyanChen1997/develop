@@ -33,7 +33,7 @@ if [[ $install_git == "yes" ]]; then
         sudo apt install git
     fi
 
-    # git push需要申请git token
+    echo 'git push需要申请git token'
     git config --global credential.helper store
 fi
 

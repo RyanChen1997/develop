@@ -16,7 +16,7 @@ pushd $DIR_NAME 1>/dev/null
 
 echo "[*] Update BASE_URL in Dockerfile"
 # Update your BASE_URL below!
-sed -i '/RUN pnpm build/i ENV BASE_URL="./"' Dockerfile
+sed -i '/RUN pnpm build/i ENV BASE_URL="/it-tools/"' Dockerfile
 
 echo "[*] Run docker build"
 docker build -t it-tools .
