@@ -17,7 +17,13 @@ func main() {
 	// extract("https://v8.dious.cc/20230504/5lKH0ozs/index.m3u8")
 	// extractM3u8()
 
-	testMultiInstance()
+	// testMultiInstance()
 
 	// parseSSML()
+
+	// TestFmt()
+
+	// TestIO()
+
+	TestOS()
 }
