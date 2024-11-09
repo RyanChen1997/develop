@@ -9,8 +9,8 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${fileDirname}",
-            "args": ["-a", "1", "-b", "true", "-c", "false"]
+            "program": "${fileDirname}"
+            // "args": ["-a", "1", "-b", "true", "-c", "false"]
         },
         {
             "name": "Launch Package - Terminal",
